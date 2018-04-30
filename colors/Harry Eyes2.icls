@@ -1,0 +1,23 @@
+<scheme name="Harry Eyes2" version="142" parent_scheme="Darcula">
+  <option name="LINE_SPACING" value="1.0" />
+  <option name="EDITOR_FONT_SIZE" value="12" />
+  <option name="EDITOR_FONT_NAME" value="Menlo" />
+  <attributes>
+    <option name="SASS_COMMENT">
+      <value>
+        <option name="FOREGROUND" value="6f7073" />
+        <option name="FONT_TYPE" value="2" />
+      </value>
+    </option>
+    <option name="SASS_IDENTIFIER">
+      <value>
+        <option name="FOREGROUND" value="e8bf6a" />
+      </value>
+    </option>
+    <option name="SASS_ID_SELECTOR">
+      <value>
+        <option name="FOREGROUND" value="2eaaff" />
+      </value>
+    </option>
+  </attributes>
+</scheme>

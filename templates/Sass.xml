@@ -1,0 +1,54 @@
+<templateSet group="Sass">
+  <template name="trbl" value="position: absolute;&#10;top: 0;&#10;right: 0;&#10;bottom: auto;&#10;left: auto;" description="position absolute declerations" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="grdc" value="@include grid-column();" description="grid column" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="grdr" value="@include grid-row();" description="Grid row" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="grdp" value="@include grid-col-pos(center);" description="Grid column position" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="blkg" value="@include grid-layout(2, '.children-items-class', $grid-column-gutter);" description="Blockgrid" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="." value=".$NAME$ {&#10;  $END$&#10;}//$NAME$" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="flxa" value="display: flex;&#10;flex-direction: row;&#10;flex-wrap: nowrap;&#10;justify-content: flex-start;&#10;align-items: flex-start;&#10;align-content: stretch;&#10;" description="All the flex" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="grdcp" value="@include grid-col-pos($end$);" description="Grid col position" toReformat="false" toShortenFQNames="true">
+    <variable name="end" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="df" value="display: flex;&#10;justify-content: space-around;&#10;align-items: center;&#10;align-content: center;" description="Display flex" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="dg" value="display: grid;&#10;grid-gap: .5rem;&#10;//grid-template-rows: 200px 100px;&#10;grid-template-columns: 1fr 1fr;" description="Display Grid" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,0 +1,41 @@
+<templateSet group="user">
+  <template name="medm" value="@include breakpoint(medium) {&#10;    &#10;}" description="media query medium up" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="medl" value="@include breakpoint(large) {&#10;    &#10;}" description="media query large up" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="acfrep" value="// check if the repeater field has rows of data&#10;&lt;?php if( have_rows('repeater_field_name') ) : ?&gt;&#10;&#10;&#9;// loop through the rows of data&#10;&#9;&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;&#10;&#10;&#9;&#9;// display a sub field value&#10;&#9;&#9;&lt;?php the_sub_field('sub_field_name'); ?&gt;&#10;&#10;&#9;&lt;?php endwhile; ?&gt;&#10;&#10;&lt;?php endif; ?&gt;" description="ACF repeater field" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="HTML" value="true" />
+      <option name="PHP" value="true" />
+      <option name="PHP Comment" value="false" />
+      <option name="PHP String Literal" value="false" />
+    </context>
+  </template>
+  <template name="Basic WPQuery" value="&lt;?php&#10;$args = array(&#10;&#9;'post_type' =&gt; 'post',&#10;&#9;'post__not_in' =&gt; array (&#10;&#9;&#9;$post-&gt;ID&#10;)&#10;);&#10;&#10;$related_posts = new WP_Query($args);&#10;?&gt;&#10;&#10;&lt;?php if($related_posts-&gt;have_posts()) : ?&gt;&#10;&#9;&lt;ul class=&quot;column-list blue-bullet&quot;&gt;&#10;&#9;&#9;&lt;?php while($related_posts-&gt;have_posts())  : $related_posts-&gt;the_post() ?&gt;&#10;&#9;&#9;&#9;&lt;li&gt;&#10;&#9;&#9;&#9;&#9;&lt;?php the_title(); ?&gt;&#10;&#9;&#9;&#9;&lt;/li&gt;&#10;&#9;&#9;&lt;?php endwhile; wp_reset_query(); ?&gt;&#10;&#9;&lt;/ul&gt;&#10;&lt;?php endif; ?&gt;" description="WP Query loop" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="buildcard" value="&#9;&#9;&#9;&#9;&lt;?php&#10;&#9;&#9;&#9;&#9;monolith_grid( 'card-property', //part&#10;&#9;&#9;&#9;&#9;&#9;&#9;'small-up-2 medium-up-3', /// size&#10;&#9;&#9;&#9;&#9;&#9;&#9;array( // builder args&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'has_image'   =&gt; true,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'has_summary' =&gt; true,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'has_title'   =&gt; true,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'pagination'  =&gt; true,&#10;&#9;&#9;&#9;&#9;&#9;&#9;),&#10;&#9;&#9;&#9;&#9;&#9;&#9;array(  // wp_query_args&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'post_type'      =&gt; 'accommodation',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'posts_per_page' =&gt; 2,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'paged'          =&gt; get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'orderby'        =&gt; 'ppw_clause',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'order'          =&gt; 'DESC',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'tax_query'      =&gt; array( // Only needed if on a taxonomy page also needs ($term_id = get_queried_object()-&gt;term_id;) placed at the top of the page&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;array(&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'taxonomy' =&gt; 'area',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'field'    =&gt; 'term_id',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'terms'    =&gt; $term_id,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;),&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;),&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'meta_query'     =&gt; array(&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'ppw_clause' =&gt; array(&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'key'     =&gt; 'sulets_acc_price_per_week',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'type'    =&gt; 'NUMERIC',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'compare' =&gt; 'EXISTS'&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;)&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;)&#10;&#9;&#9;&#9;&#9;&#9;&#9;)&#10;&#9;&#9;&#9;&#9;);&#10;&#9;&#9;&#9;&#9;?&gt;" description="builder card" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="termid" value="&lt;?php &#10;&#9;$term_id = get_queried_object()-&gt;term_id; &#10;?&gt;&#10;&#10;&lt;div class=&quot;row&quot;&gt;&#10;&#9;&lt;div class=&quot;columns medium-6&quot;&gt;&#10;&#9;&#10;&#9;&#9;&lt;?php echo term_description( $term_id, 'area' ) ?&gt;&#10;&#10;&#9;&#9;&lt;?php if( get_field( 'sulets_area_description', 'area' . '_' . $term_id ) ) : ?&gt;&#10;&#9;&#9;&#9;&lt;?php the_field( 'sulets_area_description', 'area' . '_' . $term_id ); ?&gt;&#10;&#9;&#9;&lt;?php endif; ?&gt;&#10;&#9;&lt;/div&gt;&#10;&#9;&lt;div class=&quot;columns medium-6&quot;&gt;&#10;&#9;&#9;Google Map Here The API key is set up&#10;&#9;&lt;/div&gt;&#10;&lt;/div&gt;" description="How to get acf fields on a taxonomy page" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="medxl" value="@include breakpoint(xlarge) {&#10;    &#10;}" description="media query large up" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="taxterm" value="&lt;?php &#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;$areas = get_terms(&#10;&#9;&#9;&#9;&#9;array(&#10;&#9;&#9;&#9;&#9;&#9;'taxonomy' =&gt; 'area',&#10;&#9;&#9;&#9;&#9;)&#10;&#9;&#9;&#9;);&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;foreach($areas AS $area) { ?&gt;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&lt;?php // dump($area); ?&gt;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&lt;h2&gt;&lt;?php echo $area-&gt;name ; ?&gt;&lt;/h2&gt;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&lt;?php &#10;&#9;&#9;&#9;&#9;&#9;monolith_grid( 'card', //part&#10;&#9;&#9;&#9;&#9;&#9;'large-up-3', /// size&#10;&#9;&#9;&#9;&#9;&#9;&#9;array(    &#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;// builder args&#10;              'has_image'    =&gt; true,&#10;              'has_summary'  =&gt; true,&#10;              'has_title' =&gt; true&#10;&#9;&#9;&#9;&#9;&#9;&#9;),&#10;&#9;&#9;&#9;&#9;&#9;&#9;array (&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;// wp_query_args&#10;              'post_type'      =&gt; 'accommodation',&#10;              'posts_per_page' =&gt; -1,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'tax_query' =&gt; array(&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;array(&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'taxonomy' =&gt; 'area',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'field'    =&gt; 'id',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'terms'    =&gt; $area-&gt;term_id,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;),&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;),              &#10;&#9;&#9;&#9;&#9;&#9;&#9;)&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;);&#10;&#9;&#9;&#9;&#9;?&gt;&#10;&#9;&#9;&#9;&#9;&lt;hr /&gt;&#10;&#9;&#9;&#9;&lt;?php }&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#10;&#9;&#9;?&gt;&#9;&#9;" description="Get the terms of a taxonomy" toReformat="false" toShortenFQNames="true" />
+</templateSet>
