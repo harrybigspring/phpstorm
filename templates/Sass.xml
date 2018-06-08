@@ -56,4 +56,39 @@
       <option name="CSS" value="true" />
     </context>
   </template>
+  <template name="medl" value="@include breakpoint(large) {&#10;    &#10;}" description="media query large up" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="medm" value="@include breakpoint(medium) {&#10;    &#10;}" description="media query medium up" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="medxl" value="@include breakpoint(xlarge) {&#10;    &#10;}" description="media query large up" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="xcont" value="@include xy-grid-container;" description="xy grid container" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="xrow" value="@include xy-grid;" description="xy row" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="xcell" value="@include xy-cell();" description="XY Cell" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
+  <template name="xblkg" value="  @include xy-grid;&#10;  @include xy-grid-layout(3, '.gallery-item');" description="xy block grid" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="CSS" value="true" />
+    </context>
+  </template>
 </templateSet>
