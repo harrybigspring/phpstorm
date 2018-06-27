@@ -76,7 +76,7 @@
       <option name="CSS" value="true" />
     </context>
   </template>
-  <template name="xrow" value="@include xy-grid;" description="xy row" toReformat="false" toShortenFQNames="true">
+  <template name="xgrid" value="@include xy-grid;" description="xy row" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="CSS" value="true" />
     </context>
