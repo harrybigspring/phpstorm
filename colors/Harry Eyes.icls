@@ -4,7 +4,8 @@
   <option name="EDITOR_FONT_SIZE" value="14" />
   <option name="EDITOR_FONT_NAME" value="Menlo" />
   <colors>
-    <option name="SELECTION_BACKGROUND" value="403e36" />
+    <option name="SELECTION_BACKGROUND" value="61ff0a" />
+    <option name="WHITESPACES" value="fff2cb" />
   </colors>
   <attributes>
     <option name="HTML_TAG">
