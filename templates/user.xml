@@ -1,5 +1,5 @@
 <templateSet group="user">
-  <template name="acfrep" value="// check if the repeater field has rows of data&#10;&lt;?php if( have_rows('repeater_field_name') ) : ?&gt;&#10;&#10;&#9;// loop through the rows of data&#10;&#9;&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;&#10;&#10;&#9;&#9;// display a sub field value&#10;&#9;&#9;&lt;?php the_sub_field('sub_field_name'); ?&gt;&#10;&#10;&#9;&lt;?php endwhile; ?&gt;&#10;&#10;&lt;?php endif; ?&gt;" description="ACF repeater field" toReformat="false" toShortenFQNames="true">
+  <template name="acfrep" value="// check if the repeater field has rows of data&#10;&lt;?php if( have_rows('repeater_field_name') ) : ?&gt;&#10;&#10;&#9;// loop through the rows of data&#10;&#9;&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;&#10;&#10;&#9;&#9;// display a sub field value&#10;&#9;&#9;&lt;?php the_sub_field('sub_field_name'); ?&gt;&#10;&#10;&#9;&lt;?php endwhile; ?&gt;&#10;&#10;&lt;?php endif; ?&gt;" description="ACF repeater field" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="HTML" value="true" />
       <option name="PHP" value="true" />
@@ -28,12 +28,12 @@
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="acfrel" value="$posts = get_field('relationship_field_name');&#10;&#10;if( $posts ): ?&gt;&#10;    &lt;ul&gt;&#10;    &lt;?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?&gt;&#10;        &lt;?php setup_postdata($post); ?&gt;&#10;        &lt;li&gt;&#10;            &lt;a href=&quot;&lt;?php the_permalink(); ?&gt;&quot;&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&#10;            &lt;span&gt;Custom field from $post: &lt;?php the_field('author'); ?&gt;&lt;/span&gt;&#10;        &lt;/li&gt;&#10;    &lt;?php endforeach; ?&gt;&#10;    &lt;/ul&gt;&#10;    &lt;?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?&gt;&#10;&lt;?php endif;" description="ACF relationship field" toReformat="false" toShortenFQNames="true">
+  <template name="acfrel" value="$posts = get_field('relationship_field_name');&#10;&#10;if( $posts ): ?&gt;&#10;    &lt;ul&gt;&#10;    &lt;?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?&gt;&#10;        &lt;?php setup_postdata($post); ?&gt;&#10;        &lt;li&gt;&#10;            &lt;a href=&quot;&lt;?php the_permalink(); ?&gt;&quot;&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&#10;            &lt;span&gt;Custom field from $post: &lt;?php the_field('author'); ?&gt;&lt;/span&gt;&#10;        &lt;/li&gt;&#10;    &lt;?php endforeach; ?&gt;&#10;    &lt;/ul&gt;&#10;    &lt;?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?&gt;&#10;&lt;?php endif;" description="ACF relationship field" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="PHP" value="true" />
     </context>
   </template>
-  <template name="acfif" value="&lt;?php if( get_field('text_field') ): ?&gt;&#10;    &lt;h2&gt;&lt;?php the_field('text_field'); ?&gt;&lt;/h2&gt;&#10;&lt;?php endif; ?&gt;" description="ACF if field" toReformat="false" toShortenFQNames="true">
+  <template name="acfif" value="&lt;?php if( get_field('text_field') ): ?&gt;&#10;    &lt;h2&gt;&lt;?php the_field('text_field'); ?&gt;&lt;/h2&gt;&#10;&lt;?php endif; ?&gt;" description="ACF if field" toReformat="true" toShortenFQNames="true">
     <context>
       <option name="PHP" value="true" />
     </context>
