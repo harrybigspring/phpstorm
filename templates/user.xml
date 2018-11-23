@@ -23,4 +23,19 @@
     </context>
   </template>
   <template name="taxterm" value="&lt;?php &#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;$areas = get_terms(&#10;&#9;&#9;&#9;&#9;array(&#10;&#9;&#9;&#9;&#9;&#9;'taxonomy' =&gt; 'area',&#10;&#9;&#9;&#9;&#9;)&#10;&#9;&#9;&#9;);&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;foreach($areas AS $area) { ?&gt;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&lt;?php // dump($area); ?&gt;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&lt;h2&gt;&lt;?php echo $area-&gt;name ; ?&gt;&lt;/h2&gt;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&lt;?php &#10;&#9;&#9;&#9;&#9;&#9;monolith_grid( 'card', //part&#10;&#9;&#9;&#9;&#9;&#9;'large-up-3', /// size&#10;&#9;&#9;&#9;&#9;&#9;&#9;array(    &#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;// builder args&#10;              'has_image'    =&gt; true,&#10;              'has_summary'  =&gt; true,&#10;              'has_title' =&gt; true&#10;&#9;&#9;&#9;&#9;&#9;&#9;),&#10;&#9;&#9;&#9;&#9;&#9;&#9;array (&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;// wp_query_args&#10;              'post_type'      =&gt; 'accommodation',&#10;              'posts_per_page' =&gt; -1,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'tax_query' =&gt; array(&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;array(&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'taxonomy' =&gt; 'area',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'field'    =&gt; 'id',&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;'terms'    =&gt; $area-&gt;term_id,&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;),&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;),              &#10;&#9;&#9;&#9;&#9;&#9;&#9;)&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#9;&#9;);&#10;&#9;&#9;&#9;&#9;?&gt;&#10;&#9;&#9;&#9;&#9;&lt;hr /&gt;&#10;&#9;&#9;&#9;&lt;?php }&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#10;&#9;&#9;&#9;&#10;&#9;&#9;?&gt;&#9;&#9;" description="Get the terms of a taxonomy" toReformat="false" toShortenFQNames="true" />
+  <template name="acfimg" value="$image = get_field('image');&#10;$size = 'full'; // (thumbnail, medium, large, full or custom size)&#10;&#10;if( $image ) {&#10;&#10;&#9;echo wp_get_attachment_image( $image, $size );&#10;&#10;}" description="ACF image" toReformat="true" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="acfrel" value="$posts = get_field('relationship_field_name');&#10;&#10;if( $posts ): ?&gt;&#10;    &lt;ul&gt;&#10;    &lt;?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?&gt;&#10;        &lt;?php setup_postdata($post); ?&gt;&#10;        &lt;li&gt;&#10;            &lt;a href=&quot;&lt;?php the_permalink(); ?&gt;&quot;&gt;&lt;?php the_title(); ?&gt;&lt;/a&gt;&#10;            &lt;span&gt;Custom field from $post: &lt;?php the_field('author'); ?&gt;&lt;/span&gt;&#10;        &lt;/li&gt;&#10;    &lt;?php endforeach; ?&gt;&#10;    &lt;/ul&gt;&#10;    &lt;?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?&gt;&#10;&lt;?php endif;" description="ACF relationship field" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
+  <template name="acfif" value="&lt;?php if( get_field('text_field') ): ?&gt;&#10;    &lt;h2&gt;&lt;?php the_field('text_field'); ?&gt;&lt;/h2&gt;&#10;&lt;?php endif; ?&gt;" description="ACF if field" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="PHP" value="true" />
+    </context>
+  </template>
 </templateSet>
